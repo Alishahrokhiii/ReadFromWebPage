@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var Webview: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -17,7 +20,9 @@ class ViewController: UIViewController {
     
         let task = URLSession.shared.dataTask(with: url) { (data, response, erorr) in
             let content = String(data: data!, encoding: String.Encoding.utf8)
-            print(content!)
+//            print(content!)
+            
+            self.Webview.loadHTMLString(content!, baseURL: url)
         }
             
         task.resume()
