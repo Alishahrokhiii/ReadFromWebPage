@@ -12,9 +12,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
+       let url = URL(string: "https://alishahrokhi.ir")!
+    
+        let task = URLSession.shared.dataTask(with: url) { (data, response, erorr) in
+            let content = String(data: data!, encoding: String.Encoding.utf8)
+            print(content!)
+        }
+            
+        task.resume()
+        
+        
+        
+        
     }
-
+ 
 
 }
 
